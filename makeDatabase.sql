@@ -131,6 +131,7 @@ INSERT INTO camels (name, birthday, commands, subtype_id)
 VALUES ('Mig', '2022-04-10', "go", 3),
 ('Taifoon', '2019-03-12', "stop", 3);
 
+SET SQL_SAFE_UPDATES = 0;
 DELETE FROM camels;
 
 CREATE TABLE hd_union
@@ -185,3 +186,22 @@ LEFT JOIN pack_animals
 ON all_pack.subtype_id=pack_animals.id) all_animals
 LEFT JOIN animal_types
 ON all_animals.type_id=animal_types.id;
+
+CREATE TABLE all_pets
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200),
+    birthday DATE,
+    commands VARCHAR(200),
+    subtype VARCHAR(200)
+);
+
+INSERT INTO all_pets (name, birthday, commands, subtype)
+SELECT pets_together.name, pets_together.birthday, pets_together.commands, pets.name as subtype_name
+FROM
+(SELECT * FROM cats
+UNION SELECT * FROM dogs
+UNION SELECT * FROM hamsters
+) pets_together
+LEFT JOIN pets
+ON pets_together.subtype_id=pets.id;
