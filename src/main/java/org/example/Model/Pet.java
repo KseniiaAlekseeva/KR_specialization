@@ -1,6 +1,6 @@
 package org.example.Model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public abstract class Pet implements Animal {
     protected Integer id;
@@ -13,11 +13,11 @@ public abstract class Pet implements Animal {
         this.type = type;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -45,6 +45,10 @@ public abstract class Pet implements Animal {
         this.commands = commands;
     }
 
+    public PetType getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
         return "Pet{" +
@@ -52,6 +56,7 @@ public abstract class Pet implements Animal {
                 ", name='" + name + '\'' +
                 ", birthday=" + birthday +
                 ", commands='" + commands + '\'' +
+                ", type=" + type +
                 '}';
     }
 
