@@ -16,7 +16,7 @@ public class ConsoleMenu {
 
     public void start() {
 
-        try (Scanner in = new Scanner(System.in); Counter count = new Counter()) {
+        try (Scanner in = new Scanner(System.in)) {
             boolean flag = true;
             Integer id;
 
@@ -29,8 +29,11 @@ public class ConsoleMenu {
                         break;
                     case "2":
                         PetType type = choosePetType(in);
-                        if (controller.addPet(type, enterPet()))
-                            view.showMessage("Writing to DB - successful...");
+                        if (type == null)
+                            break;
+                        controller.addPet(type, enterPet());
+                        view.showMessage("Writing to DB - successful...");
+
                         break;
                     case "3":
                         while (true) {

@@ -243,3 +243,18 @@ ON all_animals.type_id=animal_types.id;
     
     Проект программы лежит по [ссылке](./src/main/java/org/example
     ).
+    
+### Примеры работы программы:
+* Показать список всех домашних животных в БД.
+![Example 1](./img/program/01.png)
+* Добавить домашнее животное в БД.
+![Example 2-1](./img/program/02.01.png)
+![Example 2-2](./img/program/02.02.png)
+* Показать домашнее животное по id.
+![Example 3](./img/program/03.png)
+* Показать команды домашнего животного по его id.
+![Example 4](./img/program/04.png)
+* Добавить команду домашнему животному по его id.
+![Example 5-1](./img/program/05.01.png)
+![Example 5-2](./img/program/05.02.png)
+

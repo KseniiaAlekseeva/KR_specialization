@@ -14,16 +14,12 @@ public class Controller {
         this.petDB = petDB;
     }
 
-    public boolean addPet(PetType type, String[] params) {
+    public void addPet(PetType type, String[] params) {
         try (Counter count = new Counter()) {
             String[] date = params[1].split("-");
             Date birthday = new Date(Integer.parseInt(date[0]) - 1900, Integer.parseInt(date[1]) - 1, Integer.parseInt(date[2]));
-            if (type != null) {
                 petDB.add(type, params[0], birthday, params[2]);
                 count.add();
-                return true;
-            }
-            return false;
         }
     }
 
